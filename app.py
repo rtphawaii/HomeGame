@@ -87,13 +87,13 @@ def input_players():
         print(table.list)
         # Increment the 'players_added' count in the session
         session['players_added'] += 1
-        return redirect(url_for('game'))
+        return redirect(url_for('waiting_room'))
 
     # Render the 'input_players.html' template if the request method is GET
     return render_template('input_players.html')
 
-@app.route('/game', methods=['GET', 'POST'])
-def game():
+@app.route('/waiting_room', methods=['GET', 'POST'])
+def waiting_room():
     if request.method == 'POST':
         pass
         # Handle form submission
@@ -101,6 +101,19 @@ def game():
         # Return appropriate response
     else:
         # Render the template for the game page
+        username=session['username']
+        return render_template('waiting_room.html',username=session['username'])
+
+@app.route('/game', methods=['GET', 'POST'])
+def game():
+    if request.method == 'POST':
+        table.Round()
+        # Handle form submission
+        # Process user inputs
+        # Return appropriate response
+    else:
+        # Render the template for the game page
+        table.Round()
         return render_template('game.html')
 
 

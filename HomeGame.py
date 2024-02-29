@@ -26,7 +26,6 @@ class Table():
         self.rivercheck=False
         self.gameover=False
         self.round=1
-        self.results=[]
     def createdeck(self):
         '''create the deck'''
         self.deck = [(rank, suit) for rank in Rank for suit in Suit]
@@ -200,7 +199,7 @@ class Table():
         if all(value > 0.2 for value in latest_bets.values()):
             self.pot -= 0.1
         return sum(value for value in latest_bets.values())
-    def RoundStart(self,bet=0):
+    def Round(self,bet=0):
         '''execute one round'''
         #reset hands
         for x in self.list:
@@ -221,10 +220,11 @@ class Table():
         self.bet.append((self.order[2],self.bigblind))
         #add the small and big blind to the pot
         self.pot=self.smallblind+self.bigblind
-        return self.order
-    def PreFlopBets(self):
+        print('order:',[x.name for x in self.order])
         self.bets()
+        print(self.bet)
         self.pot=self.potcalc()
+        print('pot:',self.pot)
         self.fold_check()
         
         if self.gameover==False:
@@ -279,6 +279,7 @@ class Table():
         self.gameover=False
         self.order=self.startingorder[-1:]+self.startingorder[:-1]
         
+   
     
         
 class Player():
@@ -311,6 +312,7 @@ class Player():
                     else:
                         print("Invalid bet. Bet exceeds balance.")
                 except ValueError:
-                    print("Invalid input. Please enter a valid number.")      
+                    print("Invalid input. Please enter a valid number.")
+    
         
         
