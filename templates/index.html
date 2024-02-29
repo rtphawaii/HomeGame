@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poker Game</title>
+    <title>Index</title>
 </head>
 <body>
-    <h1>Welcome to the Poker Game Setup</h1>
-    <a href="{{ url_for('setup') }}">Start Game Setup</a>
+    <h1>Welcome, {{ username }}!</h1>
+    {% if show_setup %}
+        <form action="{{ url_for('setup') }}" method="get">
+            <button type="submit">Setup</button>
+        </form>
+    {% endif %}
+    <form action="{{ url_for('change_username') }}" method="get">
+        <button type="submit">Change Username</button>
+    </form>
+    <form method="get" action="{{ url_for('input_players') }}">
+        <button type="submit">Buy-in</button>
+    </form>
 </body>
 </html>

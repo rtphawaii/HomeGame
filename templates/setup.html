@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Specifies the language of the document -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Poker Game</title>
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configures the viewport for responsive design -->
+    <title>Setup Poker Game</title> <!-- Sets the title of the page -->
 </head>
 <body>
-    <h1>Setup Poker Game</h1>
-    <form method="post" action="{{ url_for('setup') }}">
-        <label for="small_blind">Small Blind:</label>
-        <input type="number" id="small_blind" name="small_blind" step="0.01" required>
+    <h1>Setup Poker Game</h1> <!-- Heading indicating the purpose of the page -->
+    <form method="post" action="{{ url_for('setup') }}"> <!-- Form for setting up the poker game, method="post" indicates that data will be sent via POST request -->
+        <label for="small_blind">Small Blind:</label> <!-- Label for the small blind input field -->
+        <input type="number" id="small_blind" name="small_blind" step="0.01" required> <!-- Input field for entering the small blind value -->
+        <br> <!-- Line break -->
+        <label for="big_blind">Big Blind:</label> <!-- Label for the big blind input field -->
+        <input type="number" id="big_blind" name="big_blind" step="0.01" required> <!-- Input field for entering the big blind value -->
         <br>
-        <label for="big_blind">Big Blind:</label>
-        <input type="number" id="big_blind" name="big_blind" step="0.01" required>
-        <br>
-        <input type="submit" value="Start Game">
+        <label for="player_count">Number of Players:</label> <!-- Label for the big blind input field -->
+        <input type="number" id="player_count" name="player_count" step="1" required> <!-- Input field for entering the big blind value -->
+        <br> <!-- Line break -->
+        <input type="submit" value="Start Game"> <!-- Submit button to start the game -->
     </form>
 </body>
 </html>

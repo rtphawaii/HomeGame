@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Username</title>
+</head>
+<body>
+    <h1>Change Username</h1>
+    <form action="{{ url_for('change_username') }}" method="post">
+        <label for="username">New Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <button type="submit">Change Username</button>
+    </form>
+    <form action="{{ url_for('index') }}" method="get">
+        <button type="submit">Back to Home</button>
+    </form>
+</body>
+</html>
